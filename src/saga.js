@@ -1,11 +1,10 @@
-import {
-  all,
-} from 'redux-saga/effects';
-import testSaga from './components/Components/TestComponent/saga';
+import { all } from 'redux-saga/effects';
+
+import welcomeScreenSaga from './components/Components/WelcomeScreen/saga';
 
 function* saga() {
   yield all([
-    testSaga(),
+    welcomeScreenSaga(),
   ]);
 }
 

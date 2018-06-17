@@ -1,11 +1,9 @@
-import {
-  combineReducers,
-} from 'redux';
+import { combineReducers } from 'redux-immutable';
 
-import testReducer from './components/App/ducks';
+import welcomeScreenReducer from './components/Components/WelcomeScreen/ducks';
 
 const rootReducer = combineReducers({
-  testReducer,
+  welcomeScreenReducer,
 });
 
 export default rootReducer;

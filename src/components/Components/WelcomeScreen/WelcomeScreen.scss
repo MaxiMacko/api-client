@@ -1,0 +1,36 @@
+@import "../../../common.scss";
+
+.welcome-screen-root {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-screen-content {
+  height: 300px;
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    height: 120px;
+  }
+
+  .input-container {
+    .user-name-input {
+      padding: 10px;
+    }
+
+    .submit-button {
+      margin-left: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      &:hover {
+        background-color: $button-color;
+      }
+    }
+
+  }
+
+}

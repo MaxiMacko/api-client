@@ -1,10 +1,5 @@
-import {
-  fromJS
-} from 'immutable';
-
-import {
-  handleActions,
-} from 'redux-actions';
+import { fromJS } from 'immutable';
+import { handleActions } from 'redux-actions';
 
 const initialState = fromJS({
   testValue: true,

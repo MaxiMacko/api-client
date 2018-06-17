@@ -1,0 +1,21 @@
+.welcome-screen-root {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.welcome-screen-content {
+  height: 300px; }
+  .welcome-screen-content .logo {
+    display: flex;
+    justify-content: center;
+    height: 120px; }
+  .welcome-screen-content .input-container .user-name-input {
+    padding: 10px; }
+  .welcome-screen-content .input-container .submit-button {
+    margin-left: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer; }
+    .welcome-screen-content .input-container .submit-button:hover {
+      background-color: #aedeff; }

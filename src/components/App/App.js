@@ -4,13 +4,15 @@ import {
   Route,
 } from 'react-router-dom';
 
-import TestComponent from '../Components/TestComponent/TestComponent';
+import WelcomeScreen from '../Components/WelcomeScreen/WelcomeScreen';
+import ReposScreen from '../Components/ReposScreen/ReposScreen';
 
 class App extends Component {
   render() {
     return (
       <Switch>
-        <Route path="/" component={TestComponent} />
+        <Route path="/repos" component={ReposScreen} />
+        <Route path="/" component={WelcomeScreen} />
       </Switch>
     );
   }
