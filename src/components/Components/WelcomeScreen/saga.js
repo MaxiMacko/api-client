@@ -4,35 +4,41 @@ import {
   put,
 } from 'redux-saga/effects';
 
-import {
-  browserHistory,
-} from '../../../index';
-import {
-  axiosInstance,
-} from '../../../Api/Api';
+import { browserHistory } from '../../../index';
+import { axiosInstance } from '../../../Api/Api';
 
-import { fetchUserDataRequestAction } from './ducks';
+import {
+  fetchUserDataFailureAction,
+  fetchUserDataRequestAction,
+  fetchUserDataSuccessAction,
+} from './ducks';
 
 function* fetchUserDataSaga(action) {
-  const {
-    payload: userName,
-  } = action;
+  try {
+    const {
+      payload: userName,
+    } = action;
 
-  const response = yield call(() => axiosInstance({
-    url: `https://api.github.com/users/${userName}`,
-    method: 'get',
-  }));
+    const response = yield call(() => axiosInstance({
+      url: `https://api.github.com/users/${userName}`,
+      method: 'get',
+    }));
 
-  const {
-    repos_url,
-  } = response.data;
+    const {
+      repos_url,
+    } = response.data;
 
-  const reposResponse = yield call(() => axiosInstance({
-    url: repos_url,
-    method: 'get',
-  }));
+    const reposResponse = yield call(() => axiosInstance({
+      url: repos_url,
+      method: 'get',
+    }));
 
-  browserHistory.push('/repos');
+    yield put(fetchUserDataSuccessAction());
+    browserHistory.push('/repos');
+  } catch (e) {
+    yield put(fetchUserDataFailureAction());
+  }
+
 }
 
 function* saga() {

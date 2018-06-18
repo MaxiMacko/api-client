@@ -14,15 +14,22 @@ export const fetchUserDataSuccessAction = createAction(`${PREFIX}/FETCH_USER_DAT
 
 const initialState = fromJS({
   loading: false,
+  error: false,
 });
 
 const reducer = handleActions({
   [fetchUserDataRequestAction]: state =>
-    state.set('loading', true),
+    state
+      .set('loading', true)
+      .set('error', false),
   [fetchUserDataFailureAction]: state =>
-    state.set('loading', false),
+    state
+      .set('loading', false)
+      .set('error', true),
   [fetchUserDataSuccessAction]: state =>
-    state.set('loading', false),
+    state
+      .set('loading', false)
+      .set('error', false),
 }, initialState);
 
 export default reducer;

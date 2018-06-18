@@ -5,11 +5,14 @@ import {
 import PropTypes from 'prop-types';
 
 import githubIcon from '../../../images/github-icon.png';
+import CustomLoadingIndicator from '../CustomLoadingIndicator/CustomLoadingIndicator';
 
 import './WelcomeScreen.css';
 import { fetchUserDataRequestAction } from './ducks';
-import { getLoading } from './selectors';
-import CustomLoadingIndicator from "../CustomLoadingIndicator/CustomLoadingIndicator";
+import {
+  getLoading,
+  getErrorValue,
+} from './selectors';
 
 const propTypes = {
   fetchUserData: PropTypes.func,
@@ -24,7 +27,7 @@ class WelcomeScreen extends React.Component {
     };
   }
 
-  inputChangeHanlder = (e) => {
+  inputChangeHandler = (e) => {
     this.setState({
       inputValue: e.target.value,
     });
@@ -34,6 +37,7 @@ class WelcomeScreen extends React.Component {
     const {
       loading,
       fetchUserData,
+      error,
     } = this.props;
 
     if (loading) {
@@ -43,14 +47,14 @@ class WelcomeScreen extends React.Component {
     return (
       <div className="welcome-screen-content">
         <div className="logo">
-          <img src={githubIcon} alt="icon" height="50" width="50"/>
+          <img src={githubIcon} alt="icon" height="50" width="50" />
         </div>
         <div className="input-container">
           <input
             className="user-name-input"
             type="text"
             value={this.state.inputValue}
-            onChange={(e) => this.inputChangeHanlder(e)}
+            onChange={e => this.inputChangeHandler(e)}
           />
           <button
             type="submit"
@@ -60,8 +64,14 @@ class WelcomeScreen extends React.Component {
             Submit
           </button>
         </div>
+        {
+          error &&
+          <div className="error-container">
+            Wrong user. Please enter valid username
+          </div>
+        }
       </div>
-    )
+    );
   }
 
   render() {
@@ -76,8 +86,8 @@ class WelcomeScreen extends React.Component {
 WelcomeScreen.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
+    error: getErrorValue(state),
     loading: getLoading(state),
   };
 }

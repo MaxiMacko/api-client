@@ -10,6 +10,7 @@ plugins:
   - react
   - jsx-a11y
 rules:
+  camelcase: off
   quote-props:
       - 0
   jsx-a11y/anchor-is-valid: 0

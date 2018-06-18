@@ -10,6 +10,9 @@
     display: flex;
     justify-content: center;
     height: 120px; }
+  .welcome-screen-content .error-container {
+    color: red;
+    margin-top: 10px; }
   .welcome-screen-content .input-container .user-name-input {
     padding: 10px; }
   .welcome-screen-content .input-container .submit-button {

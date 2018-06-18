@@ -16,6 +16,11 @@
     height: 120px;
   }
 
+  .error-container {
+    color: $error-text-color;
+    margin-top: 10px;
+  }
+
   .input-container {
     .user-name-input {
       padding: 10px;
