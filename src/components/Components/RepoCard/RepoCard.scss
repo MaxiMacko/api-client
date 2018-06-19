@@ -1,0 +1,29 @@
+.repo-card-root {
+  padding: 20px;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+
+  &:hover {
+    background-color: aliceblue;
+  }
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    div {
+      flex-basis: 25%;
+    }
+
+    .name {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+
+  .bottom-bar {
+    margin-top: 10px;
+  }
+}
+

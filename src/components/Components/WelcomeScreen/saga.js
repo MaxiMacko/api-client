@@ -6,6 +6,7 @@ import {
 
 import { browserHistory } from '../../../index';
 import { axiosInstance } from '../../../Api/Api';
+import storage from '../../../utils';
 
 import {
   fetchUserDataFailureAction,
@@ -28,10 +29,7 @@ function* fetchUserDataSaga(action) {
       repos_url,
     } = response.data;
 
-    const reposResponse = yield call(() => axiosInstance({
-      url: repos_url,
-      method: 'get',
-    }));
+    storage.set('reposUrl', repos_url);
 
     yield put(fetchUserDataSuccessAction());
     browserHistory.push('/repos');
