@@ -1,6 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './RepoCard.css';
+
+const propTypes = {
+  cardData: PropTypes.shape({
+    name: PropTypes.string,
+    description: PropTypes.string,
+    fork: PropTypes.bool,
+    stargazers_count: PropTypes.number,
+    updated_at: PropTypes.string,
+    language: PropTypes.string,
+  }),
+};
 
 class RepoCard extends React.Component {
   render() {
@@ -30,11 +42,18 @@ class RepoCard extends React.Component {
           </div>
         </div>
         <div className="bottom-bar">
-          {description}
+          <div>
+            {description}
+          </div>
+          <div>
+            Stars: {stargazers_count}
+          </div>
         </div>
       </div>
     );
   }
 }
+
+RepoCard.propTypes = propTypes;
 
 export default RepoCard;

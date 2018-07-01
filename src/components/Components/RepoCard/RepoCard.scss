@@ -24,6 +24,10 @@
 
   .bottom-bar {
     margin-top: 10px;
+
+    div + div {
+      margin-top: 10px;
+    }
   }
 }
 

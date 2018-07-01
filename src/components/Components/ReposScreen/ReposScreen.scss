@@ -1,3 +1,15 @@
 .repos-screen-root {
   height: 100%;
+  display: flex;
+}
+
+.filter-panel {
+  height: 100vh;
+  min-width: 200px;
+  border: 1px solid black;
+}
+
+.cards-panel {
+  height: 100vh;
+  overflow-y: scroll;
 }

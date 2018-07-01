@@ -15,3 +15,5 @@
       font-weight: bold; }
   .repo-card-root .bottom-bar {
     margin-top: 10px; }
+    .repo-card-root .bottom-bar div + div {
+      margin-top: 10px; }
